@@ -1,0 +1,1444 @@
+/* ==========================================================================
+   RESET & GLOBAL VARIABLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy-primary: #1c428a;
+  --accent-red: #b92b27;
+  --text-white: #ffffff;
+  --primary-blue: #1c428a;
+  --text-dark: #414244;
+  --text-muted: #5d6166;
+  --bg-white: #ffffff;
+  --font-main: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  font-family: var(--font-main);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+      NAVBAR STYLES
+      ========================================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 2.5rem;
+  background-color: var(--navy-primary);
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-container img {
+  margin: 15px 0px;
+  width: 190px;
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-red);
+}
+
+.btn-primary {
+  background-color: var(--accent-red);
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  color: var(--text-white) !important;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu-btn span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-white);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==========================================================================
+      CATALOGUE CONTAINER & TYPOGRAPHY
+      ========================================================================== */
+.catalogue-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 40px 24px 80px 24px;
+  background-color: var(--bg-white);
+}
+
+.catalogue-header {
+  margin-bottom: 40px;
+}
+
+.main-title,
+.main-heading {
+  color: var(--primary-blue);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.main-title span {
+  font-size: 4rem;
+  display: block;
+}
+
+.divider-line,
+.separator-line,
+.header-line {
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-blue);
+  margin: 16px 0 24px 0;
+}
+
+.category-title,
+.sub-heading {
+  color: var(--primary-blue);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.main-section-heading {
+  margin-top: 50px;
+  margin-bottom: 12px;
+}
+
+.catalogue-section {
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
+
+/* ==========================================================================
+      PRODUCT LAYOUTS
+      ========================================================================== */
+.product-detail {
+  margin-bottom: 65px;
+  margin-top: 50px;
+
+}
+
+.product-header-block,
+.product-header {
+  margin-bottom: 24px;
+}
+
+.product-heading,
+.product-title {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-right: 6px;
+  text-transform: uppercase;
+}
+
+.product-subtitle,
+.subtitle {
+  color: var(--primary-blue);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.product-layout {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.product-left-col {
+  flex: 0 0 42%;
+  max-width: 42%;
+}
+
+.product-right-col {
+  flex: 0 0 58%;
+  max-width: 58%;
+}
+
+.general-seal-title {
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+/* Dual Side-by-Side Products Grid */
+.dual-products-grid {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.product-col {
+  flex: 1 1 50%;
+  max-width: 50%;
+}
+
+/* Single Column Specifications Layout */
+.single-column-specs {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+/* Images & Containers */
+.product-image-wrapper,
+.product-image-container,
+.image-wrapper,
+.image-container {
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: transparent;
+}
+
+.product-image,
+.product-img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.img-xb {
+  width: 250px;
+}
+
+.img-nc {
+  width: 300px;
+}
+
+.img-wo {
+  width: 290px;
+}
+
+.general-seal-img-wrapper .product-image {
+  max-height: 240px;
+}
+
+/* Image alignment modifiers */
+.product-visual {
+  width: 38%;
+}
+
+.product-info {
+  width: 62%;
+}
+
+.image-left .product-visual {
+  padding-right: 20px;
+}
+
+.image-right .product-info {
+  padding-right: 20px;
+}
+
+.product-visual.align-top {
+  align-items: flex-start;
+}
+
+.product-visual.align-middle {
+  align-items: center;
+}
+
+/* Typography & Bullet Lists */
+.product-description,
+.description {
+  width: 90%;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.45;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 0.2px;
+  text-align: justify;
+}
+
+.simple-design-text {
+  margin-bottom: 10px;
+}
+
+.bullet-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}
+
+.bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.image-bullet-list {
+  margin-top: 12px;
+}
+
+.config-bullet-list,
+.secondary-bullets,
+.feature-bullets {
+  margin-bottom: 24px;
+}
+
+/* Specifications, Operating Limits & Applications */
+.specifications,
+.specs-grid {
+  display: flex;
+  gap: 46px;
+  flex-direction: column;
+}
+
+.specifications, .spec-block-1{
+  margin-top: 50px;
+}
+.operating-limits,
+.spec-column {
+  max-width: 60%;
+  flex: 1 1 55%;
+}
+
+.applications {
+  flex: 1 1 45%;
+}
+
+.section-label,
+.spec-title,
+.spec-block .label {
+  color: var(--primary-blue);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.specs-table {
+  border-collapse: collapse;
+  width: 90%;
+}
+
+.specs-table td {
+  padding: 2px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  vertical-align: top;
+}
+
+.specs-table td:first-child {
+  padding-right: 12px;
+  white-space: nowrap;
+}
+
+.app-text,
+.spec-item,
+.spec-lines,
+.app-lines {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.spec-item .label {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.spec-block {
+  margin-bottom: 18px;
+}
+
+/* ==========================================================================
+      SEAL TB SPECIAL LAYOUT
+      ========================================================================== */
+.seal-tb-layout {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.seal-tb-layout .product-content {
+  flex: 0 0 58%;
+  max-width: 58%;
+}
+
+.seal-tb-layout .product-image-container {
+  flex: 0 0 42%;
+  max-width: 42%;
+  padding-top: 5px;
+}
+
+/* ==========================================================================
+      SINGLE SPRING SEALS (CANVAS SCALER / CATALOGUE PAGE)
+      ========================================================================== */
+.product-section {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.product-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Left Column - Media & Key Features */
+.left-col {
+  flex: 0 0 42%;
+  max-width: 42%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.product-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  letter-spacing: 0.2px;
+}
+
+.image-container {
+  width: 100%;
+  height: 220px;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 28px 0px 40px 0px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.image-container .img-s-box {
+  padding: 0px;
+}
+
+
+.image-container:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.product-image {
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Right Column - Overview, Variants, Specs & Applications */
+.right-col {
+  flex: 0 0 58%;
+  max-width: 58%;
+  padding-top: 4px;
+}
+
+.description {
+  color: var(--text-dark);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--bg-light);
+}
+
+/* Bullet Lists Styling */
+.bullet-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  margin-bottom: 8px;
+}
+
+.bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--primary-blue);
+  border-radius: 50%;
+}
+
+.feature-bullets li::before {
+  background-color: var(--primary-blue);
+}
+
+/* Specifications & Applications Blocks */
+.spec-block {
+  margin-top: 20px;
+  background-color: var(--bg-light);
+  padding: 16px 0px;
+}
+
+.spec-block .label {
+  color: var(--primary-blue);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.spec-lines,
+.app-lines {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px 16px;
+}
+
+.spec-lines div,
+.app-lines div {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+/* ==========================================================================
+   CARTRIDGE SEALS SPECIFIC STYLES
+   ========================================================================== */
+.cartridge-description {
+  text-transform: none;
+  font-size: 0.99rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin-bottom: 35px;
+  text-align: justify;
+}
+
+.cartridge-info-grid {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 45px;
+}
+
+.cartridge-info-col {
+  flex: 1;
+}
+
+.cartridge-diagram-col {
+  flex: 1.2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.diagram-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cartridge-diagram-img {
+  max-width: 100%;
+  height: 90%;
+  object-fit: contain;
+}
+
+/* Bottom Horizontal Product Triplet */
+.cartridge-products-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.cartridge-product-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartridge-bottom-img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  display: block;
+}
+
+.catalogue-container {
+  width: 100%;
+  padding: 30px 0px;
+}
+
+.seal-ts-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.product-left-col,
+.product-right-col {
+  flex: 0 0 100%;
+  max-width: 50%;
+}
+
+.product-right-col .specs-grid{
+  gap: 20px;
+}
+
+.product-right-col .specs-grid .operating-limits{
+  max-width: 48%;
+}
+
+.cartridge-info-grid {
+  flex-direction: row;
+  gap: 30px;
+}
+
+.cartridge-diagram-col {
+  justify-content: center;
+}
+
+.diagram-container {
+  justify-content: center;
+}
+
+/* ==========================================================================
+   AGITATOR SEALS STYLES (COLLAGE HANDLING)
+   ========================================================================== */
+.agitator-description {
+  text-transform: none;
+  font-size: 0.99rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+/* Single Collage Image Container - NO CARD UI */
+.collage-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.collage-image {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+}
+
+.catalogue-page {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  font-family: var(--font-main);
+  padding: 40px 24px;
+}
+
+.catalogue-container {
+  max-width: 90%;
+  margin: 0 40px;
+}
+
+/* Section Container & Headings */
+.catalogue-section {
+  margin-bottom: 50px;
+}
+
+.catalogue-main-title {
+  color: var(--primary-blue);
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.5px;
+}
+
+.title-divider {
+  width: 50px;
+  height: 4px;
+  background-color: var(--primary-blue);
+  margin-bottom: 24px;
+}
+
+.catalogue-subtitle {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.5px;
+}
+
+/* Multi-Column Catalogue Layouts */
+.catalogue-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.agitator-grid {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.rotary-grid {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.canned-grid {
+  grid-template-columns: 0.85fr 1.15fr;
+  margin-top: 10px;
+}
+
+/* Content & Typography */
+.catalogue-description {
+  font-size: 0.99rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.specs-subgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.specs-title {
+  color: var(--primary-blue);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+.specs-subtitle {
+  color: var(--primary-blue);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+}
+
+.margin-top-sm {
+  margin-top: 16px;
+}
+
+/* Circular Blue Bullet Lists */
+.catalogue-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 12px 0;
+}
+
+.catalogue-list li {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 4px;
+}
+
+.catalogue-list li::before {
+  content: "•";
+  color: var(--primary-blue);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.simple-text-list li {
+  padding-left: 0;
+}
+
+.simple-text-list li::before {
+  content: "";
+}
+
+.bullet-disc-list li {
+  font-size: 0.88rem;
+  padding-left: 18px;
+  margin-bottom: 6px;
+}
+
+.bullet-disc-list li::before {
+  content: "•";
+  font-size: 1.7rem;
+  left: 0;
+  top: -11px;
+}
+
+.catalogue-text-block {
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Image Containers & Precise Aspect Ratio Handling */
+.catalogue-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.catalogue-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Section Spacing & Headings */
+.catalogue-section {
+  margin-bottom: 60px;
+}
+
+.catalogue-main-title {
+  color: var(--navy-primary);
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.5px;
+}
+
+.title-divider {
+  width: 50px;
+  height: 4px;
+  background-color: var(--navy-primary);
+  margin-bottom: 28px;
+}
+
+/* Two-Column Grid (Image Left / Content Right) */
+.catalogue-grid {
+  display: grid;
+  gap: 36px;
+  align-items: start;
+}
+
+.product-grid-left {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+/* Content Typography */
+.catalogue-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.specs-subtitle {
+  color: var(--navy-primary);
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 8px 0;
+}
+
+.catalogue-text-block {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.margin-top-sm {
+  margin-top: 20px;
+}
+
+/* Circular Blue Bullets */
+.catalogue-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 12px 0;
+}
+
+.bullet-disc-list li {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.4;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+}
+
+.bullet-disc-list li::before {
+  content: "•";
+  color: var(--navy-primary);
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: -1px;
+}
+
+/* Image Aspect Ratio Handling */
+.catalogue-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.catalogue-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+}
+/* ==========================================================================
+      RESPONSIVE DESIGNS
+      ========================================================================== */
+@media screen and (max-width: 900px) {
+  .catalogue-container {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .product-layout {
+    flex-direction: column !important;
+  }
+
+  .image-left .product-visual,
+  .image-left .product-info,
+  .image-right .product-info,
+  .image-right .product-visual,
+  .product-visual,
+  .product-info {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .product-visual {
+    margin-bottom: 20px;
+    justify-content: center !important;
+  }
+
+  .specs-grid,
+  .specifications {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .img-xb,
+  .img-nc,
+  .img-wo {
+    width: 220px;
+  }
+
+  .catalogue-container {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .single-column-specs{
+    flex-direction: column;
+  }
+
+  .operating-limits, .spec-column{
+    max-width: 100%;
+  }
+  .seal-ts-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .product-left-col,
+  .product-right-col {
+    flex: 0 0 100%;
+    max-width: 50%;
+  }
+
+  .cartridge-info-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .cartridge-diagram-col {
+    justify-content: center;
+  }
+
+  .diagram-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 868px) {
+  .catalogue-grid,
+  .agitator-grid,
+  .rotary-grid,
+  .canned-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .rotary-grid .catalogue-media,
+  .canned-grid .catalogue-media {
+    order: -1;
+  }
+
+  .specs-subgrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .catalogue-main-title {
+    font-size: 1.6rem;
+  }
+
+  .catalogue-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .catalogue-grid,
+  .product-grid-left {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .catalogue-main-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .catalogue-container {
+    padding: 30px 20px 60px 20px;
+  }
+
+  .main-title,
+  .main-heading {
+    font-size: 2.2rem;
+  }
+
+  .category-title {
+    font-size: 1.3rem;
+  }
+
+  .product-layout,
+  .dual-products-grid {
+    gap: 28px;
+  }
+
+  .product-left-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .product-right-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .product-section {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .left-col,
+  .right-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .product-img {
+    max-height: 200px;
+  }
+}
+
+/* Mobile Dropdown Menu */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--navy-primary);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .product-layout .seal-tb-layout {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .seal-tb-layout .product-content,
+  .seal-tb-layout .product-image-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .dual-products-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .product-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--navy-primary);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .cartridge-products-row {
+    flex-direction: row;
+    gap: 35px;
+  }
+
+  .cartridge-bottom-img {
+    max-height: 220px;
+  }
+}
+
+/* Mobile Vertical Stack */
+@media (max-width: 650px) {
+  .catalogue-container {
+    padding: 20px 16px 40px 16px;
+  }
+
+  .main-title,
+  .main-heading {
+    font-size: 1.8rem;
+  }
+
+  .category-title {
+    font-size: 1.15rem;
+  }
+
+  .product-heading,
+  .product-title {
+    font-size: 1.3rem;
+  }
+
+  .product-subtitle {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9rem;
+  }
+
+  .product-layout,
+  .dual-products-grid {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .product-col,
+  .product-left-col,
+  .product-right-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .product-image {
+    max-height: 220px;
+    object-position: center;
+  }
+
+  .product-detail,
+  .catalogue-section {
+    margin-bottom: 40px;
+  }
+
+  .catalogue-container {
+    padding: 20px 16px 40px 16px;
+  }
+
+  .category-title {
+    font-size: 1.6rem;
+  }
+
+  .product-heading {
+    font-size: 1.4rem;
+  }
+
+  .cartridge-description {
+    text-align: left;
+  }
+}
+
+/* ======================================================================
+   FINAL RESPONSIVE / WIDTH FIXES
+   Keeps the existing catalogue UI and layout while preventing overflow.
+   ====================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+/* The catalogue previously had several conflicting width declarations.
+   This single final rule makes every section stay inside the viewport. */
+.catalogue-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  overflow: visible;
+}
+
+.catalogue-section,
+.product-detail,
+.product-category {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Subtle section-end shadow requested for the catalogue page. */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .navbar {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .nav-links {
+    gap: 1.15rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .logo-container img {
+    width: min(190px, 70vw);
+    height: auto;
+    max-height: 50px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  .nav-links {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-links a {
+    width: 100%;
+    min-height: 42px;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .product-left-col,
+  .product-right-col,
+  .product-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .seal-ts-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  .catalogue-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
